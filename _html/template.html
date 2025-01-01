@@ -5,25 +5,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- map stylesheet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
     crossorigin=""/>
   <!-- research more about location in html for external scripts + async/defer? -->
   <!-- defer loads script but prevents from running until html is parsed -->
+  <title>HideOut | Home</title>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
     crossorigin=""></script>
-    <title>HIDEOUT | BKK</title>
 </head>
 
-<body id="body">
+<body>
   <header class="z-index-2">
     <nav class="header-grid">
-      <button id="home-btn">HIDEOUT</button>
+      <button id="header-btn-1">HIDEOUT</button>
       <div></div>
-      <button id="about-btn" class="header-link">About</button>
-      <button id="menu-btn" class="header-link">Menu</button>
+      <button id="header-btn-2" class="header-link">About</button>
+      <button id="header-btn-3" class="header-link">Menu</button>
       <button id="find-us-btn" class="header-link">Find Us</button>
 
       </button>
@@ -42,66 +41,12 @@
 
   <div class="view">
     <div class="main">
-      <div class="left-sidebar">
-        <h1 id="rotate-text">HIDEOUT</h1>
-      </div>
-      
+      <h1 id="rotate-text">HIDEOUT</h1>
       <div class="grid-container-1">
-        <div id="a"></div>
-        <button class="fb-btn">
-          <img src="./img/fb.png" alt="Facebook link logo" id="fb-btn">
-        </button>
-        
-        
+        <div class="left-sidebar">
+        </div>
         <div class="main-content" id="main-content">
-          <div id="home-container">
-
-            <div class="slideshow-container">
-              <div class="slides fade">
-                <img src="./img/ho-1-sm.jpg" class="slide-img">
-              </div>
-
-              <div class="slides fade">
-                <img src="./img/ho-2-sm.jpg" class="slide-img">
-              </div>
-            
-              <div class="slides fade">
-                <img src="./img/ho-3-sm.jpg" class="slide-img">
-              </div>
-            
-              <div class="slides fade">
-                <img src="./img/ho-4-sm.jpg" class="slide-img">
-              </div>
-
-              <div class="slides fade">
-                <img src="./img/ho-5-sm.jpg" class="slide-img">
-              </div>
-
-              <div class="slides fade">
-                <img src="./img/ho-6-sm.jpg" class="slide-img">
-              </div>
-
-              <div class="slides fade">
-                <img src="./img/ho-7-sm.jpg" class="slide-img">
-              </div>
-
-              <div class="slides fade">
-                <img src="./img/ho-8-sm.jpg" class="slide-img">
-              </div>
-
-              <div class="slides fade">
-                <img src="./img/ho-9.jpg" class="slide-img">
-              </div>
-
-              <a class="prev" id="prev-img-btn">&#10094;</a>
-              <a class="next" id="next-img-btn">&#10095;</a>
-            </div>
-          </div>
-
-          
-
-
-          <!-- <div id="find-container">
+          <div id="find-container">
             <div>
               <h3>HIDEOUT BAR & RESTAURANT</h3>
               <div id="address-container">
@@ -124,7 +69,7 @@
                 <div id="map"></div>
               </div>
             </div>
-          </div> -->
+          </div>
         </div>
       </div>
 

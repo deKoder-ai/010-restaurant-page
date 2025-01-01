@@ -24,10 +24,9 @@
 }
 
 /* global - specificity = 0 */
-* {
-    /* temp outline to visualise box placement */
-    /* outline: 1px dashed rgba(55, 52, 235, 0.623); */
-}
+/* * {
+    outline: 1px dashed rgba(55, 52, 235, 0.623);
+} */
 
 :root {
     --header-height: 5rem;
@@ -68,6 +67,8 @@ a:hover {
     color: var(--h1-col);
     text-decoration: underline;
 }
+
+
 
 
 /* ========== BOX MODEL ========== //

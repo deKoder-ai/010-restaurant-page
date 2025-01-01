@@ -83,7 +83,7 @@ const DropdownMenu = {
 DropdownMenu.body.addEventListener('click', (e) => {
     let target = e.target;
     switch(target.id) {
-        case 'burger-menu-btn':
+        case 'burger':
             if (DropdownMenu.toggle === false) {
                 DropdownMenu.openMenu();
             } else {
