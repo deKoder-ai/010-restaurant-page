@@ -1,6 +1,6 @@
 function newElement(type, content, classes, _id) {
     const element = document.createElement(type);
-    if (content) {element.innerText = content;}
+    if (content) {element.innerHTML = content;}
     if (classes) {
         for (let _class of classes) {
             element.classList.add(_class);

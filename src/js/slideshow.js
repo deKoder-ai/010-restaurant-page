@@ -46,7 +46,6 @@ function showSlides() {
     slideshow.noDisplay();
     slideshow.display();
     slideshow.next();
-    slideshow.resetIndex();
 }
 function firstSlide() {
     slideshow.firstSlide();

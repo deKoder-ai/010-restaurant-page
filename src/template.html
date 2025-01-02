@@ -14,7 +14,7 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
     crossorigin=""></script>
-    <title>HIDEOUT | BKK</title>
+  <title>HIDEOUT | BKK</title>
 </head>
 
 <body id="body">
@@ -25,11 +25,7 @@
       <button id="about-btn" class="header-link">About</button>
       <button id="menu-btn" class="header-link">Menu</button>
       <button id="find-us-btn" class="header-link">Find Us</button>
-
-      </button>
-      <button id="dropdown-menu">
-        <div id="burger"><img src="./img/burger-2.svg" alt="Menu button" id="burger-icon"></div>
-      </button>
+      <button id="dropdown-menu"></button>
     </nav>
 
   </header>
@@ -46,85 +42,15 @@
         <h1 id="rotate-text">HIDEOUT</h1>
       </div>
       
-      <div class="grid-container-1">
-        <div id="a"></div>
+      <div class="flex-container-1">
+        <div id="left-spacer"></div>
         <button class="fb-btn">
-          <img src="./img/fb.png" alt="Facebook link logo" id="fb-btn">
+          <img src="./img/fb.png" alt="Facebook link logo" class="z-index-1000" id="fb-btn">
         </button>
         
         
         <div class="main-content" id="main-content">
-          <div id="home-container">
 
-            <div class="slideshow-container">
-              <div class="slides fade">
-                <img src="./img/ho-1-sm.jpg" class="slide-img">
-              </div>
-
-              <div class="slides fade">
-                <img src="./img/ho-2-sm.jpg" class="slide-img">
-              </div>
-            
-              <div class="slides fade">
-                <img src="./img/ho-3-sm.jpg" class="slide-img">
-              </div>
-            
-              <div class="slides fade">
-                <img src="./img/ho-4-sm.jpg" class="slide-img">
-              </div>
-
-              <div class="slides fade">
-                <img src="./img/ho-5-sm.jpg" class="slide-img">
-              </div>
-
-              <div class="slides fade">
-                <img src="./img/ho-6-sm.jpg" class="slide-img">
-              </div>
-
-              <div class="slides fade">
-                <img src="./img/ho-7-sm.jpg" class="slide-img">
-              </div>
-
-              <div class="slides fade">
-                <img src="./img/ho-8-sm.jpg" class="slide-img">
-              </div>
-
-              <div class="slides fade">
-                <img src="./img/ho-9.jpg" class="slide-img">
-              </div>
-
-              <a class="prev" id="prev-img-btn">&#10094;</a>
-              <a class="next" id="next-img-btn">&#10095;</a>
-            </div>
-          </div>
-
-          
-
-
-          <!-- <div id="find-container">
-            <div>
-              <h3>HIDEOUT BAR & RESTAURANT</h3>
-              <div id="address-container">
-                <div id="address">
-                  <div>
-                    <p>5th Floor @The Hub</p>
-                    <p>466/1-39 Phahon Yotin Road,</p>
-                    <p>Ari, Phaya Thai,</p>
-                    <p>BKK, 10400</p>
-                  </div>
-                  <div>
-                    <p>Phone: (+66)826340348</p>
-                    <p>Email: hideoutbkk@proton.me</p>
-                    <p>Line: @hideoutbkk</p>
-                    <p>Facebook: @hideoutbkk</p>
-                  </div>
-                </div>
-              </div>
-              <div id="map-container">
-                <div id="map"></div>
-              </div>
-            </div>
-          </div> -->
         </div>
       </div>
 
@@ -132,7 +58,7 @@
   </div>
 
   <footer class="z-index-2">
-    <p>©HIDEOUT 2024</p>
+    <p class="copyright">©</p><p> HIDEOUT 2024</p>
   </footer>
   
 </body>
