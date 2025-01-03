@@ -1,105 +1,51 @@
 'use strict'
-const currentPage = location.pathname.split("/").pop();
-function createPath(page) {
-    let path = null
-    if (currentPage === 'index.html') {
-        path = `html/${page}`;
-    } else {
-        path = `../html/${page}`;
-    }
-    return path;
-}
 
-// create header links
-const headerLinksDiv = document.getElementById('header-links');
-const headerLinks = [
-    ['Dashboard', 'admin-dashboard.html'],
-    ['About', '#'],
-    ['Sign Up', 'sign-up.html'],
-    ['Login', '#']
+import { newElement } from "./newElement";
+
+const ddMenu = newElement('div', '', ['dropdown_menu--animated'], 'dd-menu');
+const header = document.getElementById('header');
+header.appendChild(ddMenu);
+let ddContent = [
+    ['About'],
+    ['Menu'],
+    ['Find Us'],
+    ['Events'],
+    ['News'],
+    ['Contact']
 ]
-function addHeaderLink(name, page) {
-    const link = document.createElement('a');
-    link.textContent = name;
-    link.href = createPath(page);
-    headerLinksDiv.appendChild(link);
-}
-for (let link of headerLinks) {
-    addHeaderLink(link[0], link[1]);
-}
+// window.addEventListener('resize', function(event) {
+//     const mediaQuery = window.matchMedia('(min-width: 600px)');
+//     if (mediaQuery.matches) {
+//         ddContent = [
+//             ['Events'],
+//             ['News'],
+//             ['Contact']
+//         ]
+//     } else {
+//         ddContent = [
+//             ['About'],
+//             ['Menu'],
+//             ['Find Us'],
+//             ['Events'],
+//             ['News'],
+//             ['Contact']
+//         ]
+//     }
+// });
 
-// create menu contents
-function addMenuItem(content, type, page) {
-    function formatItem() {
-        if (type === 'a') {
-            item.href = path;
-            item.classList.add('menu-item');
-        } else if (type === 'h3') {
-            item.classList.add('menu-heading');
-        }
-    }
-    const menu = document.getElementById('header-dropdown-content');
-    const item = document.createElement(type);
-    const path = createPath(page);
-    item.textContent = content;
-    formatItem();
-    menu.appendChild(item);
-}
 
-const menuContent = [
-    ['Tools', 'h3', '#'],
-    ['| Shopping List', 'a', 'shopping-list.html'],
-    ['| Library', 'a', 'library.html'],
-    ['| Calculator', 'a', 'calculator.html'],
-    ['| Pomodoro Timer', 'a', 'pomodoro.html'],
-    ['Games', 'h3', '#'],
-    ['| Tic Tac Toe', 'a', 'tictactoe.html'],
-    ['| Rock Paper Scissors', 'a', 'rps.html'],
-    ['| Etch-a-Sketch', 'a', 'etch-a-sketch.html'],
-    ['Pages', 'h3', '#'],
-    ['| Landing Page', 'a', 'landing-page.html'],
-]
-// add items to menu
-for (let item of menuContent) {
-    addMenuItem(item[0], item[1], item[2]);
+for (let i = 0; i < ddContent.length; i++) {
+    const x = newElement('button', ddContent[i], ['dd-item'], `dd-${i}-btn`);
+    ddMenu.appendChild(x);
+}
+let toggle = false;
+const openMenu = function() {
+    ddMenu.style.display = 'block';
+    toggle = true;
+}
+const closeMenu = function() {
+    ddMenu.style.display = 'none';
+    toggle = false;
 }
 
-
-const DropdownMenu = {
-    body: document.querySelector('body'),
-    dropdownBtn: document.getElementById('burger-menu-btn'),
-    dropdownContent: document.getElementById('header-dropdown-content'),
-    toggle: false,
-    openMenu: function() {
-        this.dropdownContent.style.display = 'block';
-        this.toggle = true;
-    },
-    closeMenu: function() {
-        this.dropdownContent.style.display = 'none';
-        this.toggle = false;
-    }
-}
-
-DropdownMenu.body.addEventListener('click', (e) => {
-    let target = e.target;
-    switch(target.id) {
-        case 'burger':
-            if (DropdownMenu.toggle === false) {
-                DropdownMenu.openMenu();
-            } else {
-                DropdownMenu.closeMenu();
-            }
-            break;
-        default:
-            DropdownMenu.closeMenu();
-    } 
-});
-
-window.addEventListener('keyup', (e) => {
-    if (e.key === 'Escape') {
-        if (DropdownMenu.toggle === true) {
-            DropdownMenu.closeMenu();
-        }
-    }
-});
-
+export { openMenu, closeMenu, toggle };

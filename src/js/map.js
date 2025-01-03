@@ -16,6 +16,7 @@ function createMap() {
     // console.log(map.getPane(map));
     
     map.getPane(map).setZIndex = -500;
+    map.removeControl(map.zoomControl);
 
     // Set zIndex to a value lower than the footer's z-index (e.g., 4)
     // map.getPanes().overlayPane.style.zIndex = 4;

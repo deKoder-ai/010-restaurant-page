@@ -38,15 +38,6 @@ const page = (function() {
     cocktailDiv.appendChild(cocktailGlass);
     aboutContainer.appendChild(cocktailDiv);
 
-    // side glass
-    const cocktailGlassL = newElement('img', '', ['cocktail-svg-2'], 'cocktail-L');
-    const cocktailGlassR = newElement('img', '', ['cocktail-svg-2'], 'cocktail-R');
-    cocktailGlassL.src = cocktail;
-    cocktailGlassR.src = cocktail;
-    aboutContainer.appendChild(cocktailGlassL);
-    aboutContainer.appendChild(cocktailGlassR);
-
-
 
     const content = aboutContainer;
 

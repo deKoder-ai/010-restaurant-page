@@ -9,46 +9,76 @@ import { aboutContent } from './js/about.js';
 import { homeContent } from './js/home.js';
 import { menuContent } from './js/menu.js';
 import { newElement } from './js/newElement.js';
+// import { slideshow, showSlides } from './js/slideshow.js';
+import { openMenu, closeMenu, toggle } from './js/header.js';
 
 // function to clear content
-const mainContentDiv = document.getElementById('main-content');
+const pageContainer = document.getElementById('page');
 function clearDOM() {
-    mainContentDiv.innerHTML = '';
+    pageContainer.innerHTML = '';
+    closeMenu();
 }
 
 // load home page on page load
 window.onload = function() {
-    mainContentDiv.appendChild(homeContent);
+    pageContainer.appendChild(homeContent);
 };
+
+let mapDiv = null;
 
 
 const body = document.querySelector('body');
 body.addEventListener('click', function(e) {
     const target = e.target;
+    console.log(target);
     switch(target.id) {
+        case 'dd-0-btn':
+            console.log('click');
+            clearDOM();
+            pageContainer.appendChild(aboutContent);
+            window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+            console.log('click');
+            break;
+        case 'dd-1-btn':
+            console.log('click');
+            clearDOM();
+            pageContainer.appendChild(menuContent);
+            window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+            console.log('click');
+            break;
+        case 'dd-2-btn':
+            clearDOM();
+            // clearInterval(ssInterval);
+            window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+            pageContainer.appendChild(findUsContent);
+            mapDiv = document.getElementById('map');
+            if (!mapDiv.innerHTML) {
+                createMap();
+            }
+            break;
         case 'home-btn':
             clearDOM();
-            mainContentDiv.appendChild(homeContent);
+            pageContainer.appendChild(homeContent);
             // ssInterval = setInterval(showSlides, 5000);
             break;
         case 'about-btn':
             clearDOM();
             // clearInterval(ssInterval);
             window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-            mainContentDiv.appendChild(aboutContent);
+            pageContainer.appendChild(aboutContent);
             break;
         case 'menu-btn':
             clearDOM();
             // clearInterval(ssInterval);
             window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-            mainContentDiv.appendChild(menuContent);
+            pageContainer.appendChild(menuContent);
             break;
         case 'find-us-btn':
             clearDOM();
             // clearInterval(ssInterval);
             window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-            mainContentDiv.appendChild(findUsContent);
-            const mapDiv = document.getElementById('map');
+            pageContainer.appendChild(findUsContent);
+            mapDiv = document.getElementById('map');
             if (!mapDiv.innerHTML) {
                 createMap();
             }
@@ -72,16 +102,25 @@ body.addEventListener('click', function(e) {
             window.open('https://maps.app.goo.gl/U28ZuXbwZCWrHgm99', '_blank', 'noopener, noreferrer');
             break;
         case 'dropdown-menu':
-            console.log('abc');
+            if (toggle === false) {
+                openMenu();
+            } else {
+                closeMenu();
+            }
             break;
+        default:
+            closeMenu();
             
     }
 });
 
-
-
-
-
+window.addEventListener('keyup', (e) => {
+    if (e.key === 'Escape') {
+        if (toggle === true) {
+            closeMenu();
+        }
+    }
+});
 
 // Commit 2
 //  - generate find us page html using js
@@ -98,3 +137,15 @@ body.addEventListener('click', function(e) {
 //  - Move colors to root variables
 //  - Restyle find us page
 //  - Restructured about.js to IIFE and tidied css
+
+
+// Commit 4
+// Add responsive design and dropdown menu
+
+//  - rewrite code for responsive design
+//  - create code for header dropdown menu
+
+
+
+
+

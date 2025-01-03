@@ -1,29 +1,31 @@
 'use strict'
 import '../css/find-us.css';
 import { newElement } from "./newElement";
-import cocktail from '../img/cocktail-glass.svg';
+import hoLogoSrc from '../img/ho-logo-sm.jpg';
 
 const page = (function() {
-    const findUsPage = newElement('div', '',  ['flex-center'], 'find-page');
-    const findContainerDiv = newElement('div', '',  '', 'find-container');
+    const findContainer = newElement('div', '',  '', 'find-container');
+    const logo = newElement('img', '', '', 'logo');
+    logo.src = hoLogoSrc;
+    findContainer.appendChild(logo);
 
     // heading
     const titleContainer = newElement('div', '', ['flex-center'], 'title-container');
-    const addressTitleH3 = newElement('h3', 'HIDEOUT ARI / BAR & RESTAURANT', '', 'find-us-title');
+    const addressTitleH3 = newElement('h3', `HIDEOUT ARI\nBAR & RESTAURANT`, '', 'find-us-title');
     titleContainer.appendChild(addressTitleH3);
-    findContainerDiv.appendChild(titleContainer);
+    findContainer.appendChild(titleContainer);
 
     // map
     const mapContainerDiv = newElement('div', '', '', 'map-container');
     const mapDiv = newElement('div', '', '', 'map');
     mapContainerDiv.appendChild(mapDiv);
-    findContainerDiv.appendChild(mapContainerDiv);
+    findContainer.appendChild(mapContainerDiv);
 
     // directions button
     const directionsContainer = newElement('div', '', ['flex-center'], 'directions-container');
     const directions = newElement('button', 'GET DIRECTIONS', '', 'directions-btn');
     directionsContainer.appendChild(directions);
-    findContainerDiv.appendChild(directionsContainer);
+    findContainer.appendChild(directionsContainer);
 
     const addressContainer = newElement('div', '', ['flex-center'], 'address-container');
     const addressLeft = newElement('div', '', '', 'address-left');
@@ -48,17 +50,9 @@ const page = (function() {
         addressRight.appendChild(para[i]);
     }
  
-    findContainerDiv.appendChild(addressContainer);
+    findContainer.appendChild(addressContainer);
     
-    const cocktailGlassL = newElement('img', '', ['cocktail-svg'], 'cocktail-L');
-    const cocktailGlassR = newElement('img', '', ['cocktail-svg'], 'cocktail-R');
-    cocktailGlassL.src = cocktail;
-    cocktailGlassR.src = cocktail;
-    findUsPage.appendChild(cocktailGlassL);
-    findUsPage.appendChild(cocktailGlassR);
-
-    findUsPage.appendChild(findContainerDiv);
-    const content = findUsPage;
+    const content = findContainer;
     return { content };
 })();
 
