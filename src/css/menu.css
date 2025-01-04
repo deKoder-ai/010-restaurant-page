@@ -1,35 +1,26 @@
-#main-content {
-    background-image: linear-gradient(180deg, var(--ff-bcgcol), var(--ff-bcgcol2));
-}
-#menu-page {
-    position: relative;
-    width: 100%;
-}
 #menu-container {
     position: relative;
-    width: 70%;
-    background-image: linear-gradient(0deg, rgba(26, 26, 26, 0.815), rgba(0, 0, 0, 0.815));
-    border-left: 1px dotted var(--ff-beige-shadow);
-    border-right: 1px dotted var(--ff-beige-shadow);
+    width: 100%;
+    color: white;
+    font-size: 3rem;
 }
 #tabs-div {
     width: 100%;
-    height: 60px;
+    margin-top: 5rem;
     display: flex;
     justify-content: flex-start;
     align-items: flex-end;
-    border-bottom: 2px solid var(--ff-beige);
+    border-bottom: 2px solid var(--beige);
 }
 .menu-tab-btns {
     width: 150px;
-    height: 42px;
     border-radius: 8px 25px 0px 0px;
     font-family: dechora;
-    font-size: 2.7rem;
+    font-size: 2.4rem;
     letter-spacing: 0.1rem;
-    font-weight: 400;
+    font-weight: 500;
     border: 2px solid black;
-    background-color: var(--ff-beige);
+    background-color: var(--beige);
 }
 #mains-btn {
     z-index: 5;
@@ -44,26 +35,59 @@
 }
 #menu-items-div {
     width: 100%;
-    height: 150vh;
+    padding: 7px 35px;
+    margin-bottom: 100px;
 }
 
-
-
-
-
-.cocktail-svg-2 {
-    width: 150px;
-    height: auto;
-    opacity: 0.6;
+#menu-items-div h1 {
+    font-family: journal;
+    font-size: 5rem;
+    font-weight: 500;
+    letter-spacing: 0.15rem;
+    padding-left: 5%;
 }
-#cocktail-L {
-    position: fixed;
-    top: 240px;
-    left: 225px;
-    /* filter: invert(1); */
+
+#menu-items-div table {
+    font-size: 1.5rem;
+    padding: 20px 8%;
+    margin-top: -30px;
+    line-height: 2;
+    width: 100%;
 }
-#cocktail-R {
-    position: fixed;
-    top: 240px;
-    right: 10px;
+
+#menu-items-div td {
+    padding: 7px 5px 0px 5px;
+    border-bottom: 1px dotted var(--beige-shadow);
+}
+#menu-items-div .td-0 {
+    padding-right: 15%;
+}
+
+#menu-items-div .td-1 {
+    text-align: right;
+}
+
+#to-top-div {
+    width: 100%;
+    
+    /* padding: 40px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#to-top-btn {
+    margin-top: 50px;
+    padding: 0px 35px;
+    font-size: 1.6rem;
+    background-color: var(--beige);
+    border-radius: 50px;
+    border: 2px solid var(--red);
+    outline: 2px solid var(--red);
+}
+
+#to-top-btn:hover, #to-top-btn:focus {
+    outline: 1px solid black;
+    border: 3px solid var(--red);
+    font-weight: 600;
 }

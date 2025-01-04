@@ -1,35 +1,33 @@
 'use strict'
 import '../css/about.css';
-import { newElement } from "./newElement";
+import { newElement } from "./functions";
 import hoLogo from "../img/ho-logo-sm.jpg";
 import cocktail from '../img/cocktail-glass.svg';
+import { About } from './Data';
+import { Language } from './Language';
 
 
 
 const page = (function() {
+    const aboutContainer = newElement('article', '', '', 'about-container');
     // hideout logo
     const image = newElement('img', '', '', 'ho-logo');
     image.src = hoLogo;
-    const logoDiv = newElement('div', '', ['flex-center'], 'logo-div');
-    logoDiv.appendChild(image);
+    const logo = newElement('div', '', ['flex-center'], 'logo-div');
+    logo.appendChild(image);
+    aboutContainer.appendChild(logo);
     
-    // text
-    const text = {
-        title: 'Where the city\'s best-kept secret is waiting to be uncovered, and the good times are always on tap',
-        p1: 'Step into the unassuming entrance, and discover a world of hidden delights. At Hideout Ari, we\'ve repurposed an old [insert location] to create a sophisticated oasis in the heart of the city. Think exposed brick, reclaimed wood, and vintage accents – with a dash of modern flair.',
-        p2: 'By day, our bar is a quiet haven for coffee and conversation. By night, we transform into a lively music venue, featuring local acts that\'ll keep you dancing till the lights come up. With a menu that\'s always evolving, we offer everything from craft cocktails and small plates to wine and beer – and always something new to try.',
-        p3: 'From our globally-inspired small plates to our expertly crafted cocktails, every detail at Hideout Ari is designed to make you feel at home. Join us for dinner, drinks, or just a night out with friends – and experience the warm, welcoming vibe that\'s making us the city\'s best-kept secret.'
-    }
-    const title = newElement('h4', text.title, ['about']);
-    const p1 = newElement('p', text.p1, ['about']);
-    const p2 = newElement('p', text.p2, ['about']);
-    const p3 = newElement('p', text.p3, ['about']);
-    const aboutContainer = newElement('div', '', '', 'about-container');
-    aboutContainer.appendChild(logoDiv);
+    // title
+    const titleText = `Where the city\'s best-kept secret is waiting to be 
+        uncovered, and the good times are always on tap`;
+    const title = newElement('h4', titleText, ['about'], 'about-title');
     aboutContainer.appendChild(title);
-    aboutContainer.appendChild(p1);
-    aboutContainer.appendChild(p2);
-    aboutContainer.appendChild(p3);
+
+    // text
+    for (let i = 0; i < About.english.length; i++) {
+        const p = newElement('p', About.english[i], ['about'], `about-p${i}`);
+        aboutContainer.appendChild(p);
+    };
 
     // cocktail glass
     const cocktailGlass = newElement('img', '', '', 'cocktail-svg');

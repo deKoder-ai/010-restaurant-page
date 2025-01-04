@@ -1,6 +1,6 @@
 'use strict'
 
-import { newElement } from "./newElement";
+import { newElement } from "./functions";
 
 const ddMenu = newElement('div', '', ['dropdown_menu--animated'], 'dd-menu');
 const header = document.getElementById('header');

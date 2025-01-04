@@ -1,9 +1,14 @@
 'use strict'
 import '../css/find-us.css';
-import { newElement } from "./newElement";
+import { newElement } from "./functions";
 import hoLogoSrc from '../img/ho-logo-sm.jpg';
+import { Addresses } from './Data';
+import { Language } from './Language';
+import { clearHTML } from './functions';
+import { settings } from './Settings';
 
-const page = (function() {
+const page = function() {
+    settings.currentPage = 'Find Us';
     const findContainer = newElement('div', '',  '', 'find-container');
     const logo = newElement('img', '', '', 'logo');
     logo.src = hoLogoSrc;
@@ -24,38 +29,48 @@ const page = (function() {
     // directions button
     const directionsContainer = newElement('div', '', ['flex-center'], 'directions-container');
     const directions = newElement('button', 'GET DIRECTIONS', '', 'directions-btn');
+
     directionsContainer.appendChild(directions);
     findContainer.appendChild(directionsContainer);
 
-    const addressContainer = newElement('div', '', ['flex-center'], 'address-container');
-    const addressLeft = newElement('div', '', '', 'address-left');
-    const addressRight = newElement('div', '', '', 'address-right');
-    addressContainer.appendChild(addressLeft);
-    addressContainer.appendChild(addressRight);
+    const addressContainer = newElement('div', '', '', 'address-container');
+    console.log(Language.current);
 
-    const para = [];
-    para[0] = newElement('p', `5th Floor `);
-    const hubLink = newElement('a', ' @The Hub', ['link'], 'find-us-hub-link');
-    para[0].appendChild(hubLink);
-    para[1] = newElement('p', '466/1-39 Phahon Yotin Road,');
-    para[2] = newElement('p', 'Ari, Phaya Thai,');
-    para[3] = newElement('p', 'BKK, 10400');
-    para[4] = newElement('p', 'Phone: (+66)85 085 1568');
-    para[5] = newElement('p', 'Email: hideout.ari@gmail.com');
-    para[6] = newElement('a', 'Facebook: Hideout Ari', ['link'], 'find-us-fb-link');
-    for (let i = 0; i < 4; i++) {
-        addressLeft.appendChild(para[i]);
-    }
-    for (let i = 4; i < 7; i++) {
-        addressRight.appendChild(para[i]);
+    if (Language.current === 'Thai') {
+        for (const item of Addresses.thai) {
+            const line = newElement('p', item, ['address-line'], '');
+            addressContainer.appendChild(line);
+        }
+        // Language.getElementById('directions-btn').innerText = 'รับทิศทาง';
+    } else {
+        for (const item of Addresses.english) {
+            const line = newElement('p', item, ['address-line'], '');
+            addressContainer.appendChild(line);
+        }
+        // document.getElementById('directions-btn').innerText = 'GET DIRECTIONS';
     }
  
     findContainer.appendChild(addressContainer);
     
     const content = findContainer;
     return { content };
-})();
+};
 
-const findUsContent = page.content;
+
+const findUsContent = page();
 
 export { findUsContent };
+
+// if (Language.current === 'Thai') {
+//     for (const item of Addresses.thai) {
+//         const line = newElement('p', item, ['address-line'], '');
+//         addressContainer.appendChild(line);
+//     }
+//     // Language.getElementById('directions-btn').innerText = 'รับทิศทาง';
+// } else {
+//     for (const item of Addresses.english) {
+//         const line = newElement('p', item, ['address-line'], '');
+//         addressContainer.appendChild(line);
+//     }
+//     // document.getElementById('directions-btn').innerText = 'GET DIRECTIONS';
+// }

@@ -3,6 +3,14 @@
 <html lang="en">
 
 <head>
+  <style>
+    .initial {
+      display: none;
+    }
+    .init-bcg {
+      background-color: rgb(26, 26, 26);
+    }
+  </style>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./styles.css">
@@ -20,8 +28,8 @@
   <title>HIDEOUT | BKK</title>
 </head>
 
-<body id="body">
-  <header id="header">
+<body id="body" class="init-bcg">
+  <header id="header" class="initial">
     <nav class="header-grid">
       <button id="home-btn">HIDEOUT</button>
       <div></div>
@@ -38,7 +46,7 @@
   <!-- <a href="https://xyz.com" target="_blank" rel="noopener noreferrer">Write text here</a> -->
 
 
-  <div class="view">
+  <div class="view initial">
     <button class="fb-btn">
       <img src="./img/fb.png" alt="Facebook link logo" id="fb-btn">
     </button>
@@ -93,13 +101,19 @@
 
   </div>
 
-  <footer class="z-index-2">
+  <footer class="initial">
+    <div id="lang-radio">
+      <div id="lang-radio-in">
+        <button id="uk-btn"></button>
+        <button id="thai-btn"></button>
+      </div>
+    </div>
     <div id="copyright">
       <p class="copyright">©</p><p> HIDEOUT 2024</p>
     </div>
-    <div id="footer-2"></div>
   </footer>
   
 </body>
 
 </html>
+

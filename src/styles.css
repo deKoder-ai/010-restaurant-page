@@ -50,9 +50,11 @@ html {
     color: var(--textcol);
 }
 
+.initial {
+    display: block;
+}
 
 body {
-    /* background-color: var(--bcgcol); */
     width: 100%;
     background-image: linear-gradient(0deg, var(--bcgcol), var(--bcgcol2));
 }
@@ -166,6 +168,52 @@ button:hover {
     padding: 10px;
 }
 
+#lang-radio {
+    position: fixed;
+    bottom: 1px;
+    left: 218px;
+    width: 50px;
+    height: 26px;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    border: 2px solid var(--red);
+    z-index: 50000;
+}
+#lang-radio-in {
+    position: relative;
+    width: 90%;
+    height: 82%;
+    background-color: rgb(29, 29, 29);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    outline: 2px solid rgb(0, 0, 0);
+}
+#thai-btn, #uk-btn {
+    width: 54%;
+    height: 100%;
+    border-radius: 50px;
+    outline: 2px solid rgb(43, 43, 43);
+}
+#uk-btn {
+    background-image: url('./img/uk-flag.svg');
+    background-size: cover;
+    background-position: 85% center;
+    opacity: 0.8;
+    z-index: 60000;
+}
+#thai-btn {
+    background-image: url('./img/thai-flag.svg');
+    background-size: cover;
+    background-position: center;
+    margin-left: -7px;
+    opacity: 0.2;
+}
+
 
 @media (601px <= width <= 1000px) {
     #left-sidebar {
@@ -177,6 +225,9 @@ button:hover {
     }
     .main-grid {
         grid-template-columns: 1fr;
+    }
+    #lang-radio {
+        left: 3px;
     }
 }
 @media screen and (max-width: 600px) {
@@ -201,6 +252,9 @@ button:hover {
     }
     .glass {
         display: none;
+    }
+    #lang-radio {
+        left: 3px;
     }
 }
 
@@ -255,3 +309,5 @@ button:hover {
 /* .dropdown_menu--animated {
     animation: growDown 300ms ease-in-out forwards;
 } */
+
+
